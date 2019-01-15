@@ -20,13 +20,9 @@ in which case the program terminates or
     
 in which case the program must terminate *and* save its log to the file `<TITLE>.CSV`. Note that Pierpaolo verses must be in UPPERCASE so the audience will be able to hear. Programs with lowercase characters will compile but rob your characters of some pleasure. 
 
-Comments start with one of the keywords
+Comments are enclosed in parentheses:
 
-    NOTE THAT
-
-    REALIZE THAT
-
-    LAMENT THAT
+    (NOTE THAT THIS WILL NOT BE INTERPRETED)
 
 ## Characters
 
@@ -42,7 +38,7 @@ A Pierpaolo program is characterized by the movement of characters as time progr
 
 Time must be advanced in discrete units by entering a verse saying exactly
 
-    SO
+    VALE
     
 If not otherwise scheduled, characters will move to the left with probability 1/2 and to the right with probability 1/2. The simplest form of scheduling is the verse
 
@@ -54,12 +50,12 @@ If not otherwise scheduled, characters will move to the left with probability 1/
      
      INTRODUCE MARIA
      MOVE MARIA LEFT
-     SO
+     VALE
      
      INTRODUCE MATEO
-     NOTE THAT MARIA IS UNSCHEDULED
+     (BEWARE MARIA WHO IS UNSCHEDULED)
      MOVE MATEO RIGHT
-     SO
+     VALE
      
      BRAVO
      
@@ -83,12 +79,24 @@ Monuments allow a new form of scheduling characters as the following verse shows
  
      MAKE <MONUMENT NAME> PLEASURABLE
  
-     MAKE 
+     MAKE <MONUMENT NAME> PLEASURABLE TO <NAME>
+
+     MAKE <MONUMENT NAME> ANGUISHING
  
- Likewise the following verse
+     MAKE <MONUMENT NAME> ANGUISHING TO <NAME>
+     
+ A character's pleasure leve is increased by its proximity to pleasurable monuments and decreased by proximity to anguishing monuments.
+ 
+ ## Chases and drama
+
+The following verse
  
     MAKE <NAME1> CHASE <NAME2>
  
- causes the character `NAME1` move towards the straight line toward where `NAME2` currently is. Chases also stop with a crash, although they're likely to last indefinitely.
+ causes the charactter `NAME1` move towards the straight line toward where `NAME2` currently is. Chases, like monument-seeking, also stop if they crash.
  
- 
+In Pierpaolo programming *tragedy* is caused by schedule oscillations in character pleasure, while *dread* is caused by random fluctuations. Since these can't be easily distinguishable, the word *drama* refers indistinctly to both. Drama can be caused by monument-seeking, but also by character's affect toward others, defined by the verses
+
+    MAKE <NAME1> PLEASURABLE TO <NAME2>
+    
+    MAKE <NAME1> AMGUISHING TO <NAME2>
