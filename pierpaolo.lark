@@ -1,0 +1,31 @@
+start: DELIMITED_CODE
+
+DELIMITED_CODE: BEGIN_CODE STATEMENT+ END_CODE
+BEGIN_CODE: "PIERPAOLO" STORYNAME NEWLINE
+END_CODE: "BRAVO" NEWLINE | "BRAVISIMO" NEWLINE
+STATEMENT: COMMENT NEWLINE | VERSE NEWLINE
+COMMENT: "(" TEXT? ")"
+VERSE: "INTRODUCE" NAME -> introduction
+     | "VALE" 
+     | "MOVE" NAME DIRECTION -> motion
+     | "SET" MONUMENT_NAME "AT" PLACE -> set_monument
+     | "SEND" NAME "TOWARD" MONUMENT_NAME -> scheduling
+     | "MAKE" MONUMENT_NAME VALENCE ("TO" NAM_E)? -> monument_valence
+     | "LET"  NAME "BE" VALENCE "TO" "NAME" -> character_valence
+     | "MAKE" NAME "CHASE" NAME -> character_chase
+
+DIRECTION: "LEFT" | "RIGHT"
+PLACE: "(" INT "," INT ")"
+VALENCE: "PLEASURABLE" | "ANGUISHING"
+STORYNAME: TEXT
+NAME: TEXT
+MONUMENT_NAME: TEXT
+
+
+TEXT: LETTER+ 
+
+%import common.LETTER
+%import common.INT
+%import common.WS_INLINE
+%import common.NEWLINE
+%ignore WS_INLNE
