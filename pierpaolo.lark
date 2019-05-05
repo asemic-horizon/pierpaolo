@@ -1,22 +1,22 @@
-start: DELIMITED_CODE
+start: delimited_code
 
-DELIMITED_CODE: BEGIN_CODE STATEMENT+ END_CODE
-BEGIN_CODE: "PIERPAOLO" STORYNAME NEWLINE
-END_CODE: "BRAVO" NEWLINE | "BRAVISIMO" NEWLINE
-STATEMENT: COMMENT NEWLINE | VERSE NEWLINE
-COMMENT: "(" TEXT? ")"
-VERSE: "INTRODUCE" NAME -> introduction
-     | "VALE" 
-     | "MOVE" NAME DIRECTION -> motion
+delimited_code: begin_code statement+ end_code
+begin_code: "PIERPAOLO" STORYNAME NEWLINE
+end_code: "BRAVO" NEWLINE | "BRAVISIMO" NEWLINE
+statement: comment NEWLINE | verse NEWLINE | NEWLINE
+comment: "(" TEXT+ ")"
+verse: "INTRODUCE" NAME -> introduction
+     | "VALE" -> vale
+     | "MOVE" NAME direction -> motion
      | "SET" MONUMENT_NAME "AT" PLACE -> set_monument
      | "SEND" NAME "TOWARD" MONUMENT_NAME -> scheduling
-     | "MAKE" MONUMENT_NAME VALENCE ("TO" NAM_E)? -> monument_valence
-     | "LET"  NAME "BE" VALENCE "TO" "NAME" -> character_valence
+     | "MAKE" MONUMENT_NAME valence ("TO" NAME)? -> monument_valence
+     | "LET"  NAME "BE" valence "TO" "NAME" -> character_valence
      | "MAKE" NAME "CHASE" NAME -> character_chase
 
-DIRECTION: "LEFT" | "RIGHT"
+direction: "LEFT" | "RIGHT"
 PLACE: "(" INT "," INT ")"
-VALENCE: "PLEASURABLE" | "ANGUISHING"
+valence: "PLEASURABLE" | "ANGUISHING"
 STORYNAME: TEXT
 NAME: TEXT
 MONUMENT_NAME: TEXT
@@ -28,4 +28,4 @@ TEXT: LETTER+
 %import common.INT
 %import common.WS_INLINE
 %import common.NEWLINE
-%ignore WS_INLNE
+%ignore WS_INLINE
