@@ -97,6 +97,6 @@ The following verse
  
 In Pierpaolo programming *tragedy* is caused by schedule oscillations in character pleasure, while *dread* is caused by random fluctuations. Since these can't be easily distinguishable, the word *drama* refers indistinctly to both. Drama can be caused by monument-seeking, but also by character's affect toward others, defined by the verses
 
-    MAKE <NAME1> PLEASURABLE TO <NAME2>
+    LET <NAME1> BE PLEASURABLE TO <NAME2>
     
-    MAKE <NAME1> AMGUISHING TO <NAME2>
+    LET <NAME1> BE ANGUISHING TO <NAME2>
