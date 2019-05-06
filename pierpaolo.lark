@@ -1,18 +1,20 @@
 start: delimited_code
 
-delimited_code: begin_code statement+ end_code
+delimited_code: begin_code step+ end_code
 begin_code: "PIERPAOLO" STORYNAME NEWLINE
 end_code: "BRAVO" NEWLINE | "BRAVISIMO" NEWLINE
+
+step: statement+ "VALE" NEWLINE
 statement: comment NEWLINE | verse NEWLINE | NEWLINE
 comment: "(" TEXT+ ")"
 verse: "INTRODUCE" NAME -> introduction
-     | "VALE" -> vale
      | "MOVE" NAME direction -> motion
      | "SET" MONUMENT_NAME "AT" PLACE -> set_monument
      | "SEND" NAME "TOWARD" MONUMENT_NAME -> scheduling
      | "MAKE" MONUMENT_NAME valence ("TO" NAME)? -> monument_valence
      | "LET"  NAME "BE" valence "TO" "NAME" -> character_valence
      | "MAKE" NAME "CHASE" NAME -> character_chase
+
 
 direction: "LEFT" | "RIGHT"
 PLACE: "(" INT "," INT ")"
