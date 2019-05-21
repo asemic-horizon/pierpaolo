@@ -6,6 +6,7 @@ step: statement+ "VALE" NEWLINE
 statement: comment NEWLINE | verse NEWLINE | NEWLINE
 comment: "(" TEXT+ ")"
 verse: "INTRODUCE" NAME -> introduction
+     | "INTRODUCE" NAME "AT" POS -> placed_introduction
      | "MOVE" NAME DIRECTION -> motion
      | "SET" MONUMENT_NAME "AT" PLACE -> set_monument
      | "SEND" NAME "TOWARD" MONUMENT_NAME -> scheduling
@@ -15,6 +16,8 @@ verse: "INTRODUCE" NAME -> introduction
 
 
 DIRECTION: "LEFT" | "RIGHT"
+SIGN: "+" | "-"
+POS: SIGN? INT
 PLACE: "(" INT "," INT ")"
 VALENCE: "PLEASURABLE" | "ANGUISHING"
 STORYNAME: TEXT
