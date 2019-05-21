@@ -1,6 +1,4 @@
-start: delimited_code
-
-delimited_code: begin_code step+ end_code
+start:  begin_code step+ end_code
 begin_code: "PIERPAOLO" STORYNAME NEWLINE
 end_code: "BRAVO" NEWLINE | "BRAVISIMO" NEWLINE
 
